@@ -2,6 +2,13 @@
 
 HybridHours is a utility Android application designed for hybrid workers to track their office hours and manage Work From Home (WFH) schedules effectively.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/main.jpg" width="300" title="Main Screen">
+  <img src="screenshots/settings.jpg" width="300" title="Settings Screen">
+</p>
+
 ## Features
 
 - **Office Hour Calculator**: Simple interface to select start and end times for office work.
