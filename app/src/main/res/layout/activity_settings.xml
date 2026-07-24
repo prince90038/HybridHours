@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settingsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/settingsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- TARGET BLOCK -->
+    <TextView
+        android:id="@+id/targetHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work Target"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/settingsHeader"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/targetBlock"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_card"
+        android:padding="18dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/targetHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/targetHoursText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Target: 09h 15m"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- NOTIFICATION BLOCK -->
+    <LinearLayout
+        android:id="@+id/enableCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_card"
+        android:orientation="horizontal"
+        android:padding="18dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/targetBlock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enable Reminders"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/enableSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- RELIABILITY BLOCK -->
+    <LinearLayout
+        android:id="@+id/reliabilityCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_card"
+        android:orientation="vertical"
+        android:padding="18dp"
+        app:layout_constraintTop_toBottomOf="@id/enableCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Improve Reliability"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/reliabilityStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="System might freeze reminders to save battery."
+            android:textColor="@color/textSecondary"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fixReliabilityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fix Now"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/onPrimary"
+            android:layout_marginTop="12dp"
+            android:minHeight="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/listHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule Timesheet Reminder"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/reliabilityCard"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reminderRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintTop_toBottomOf="@id/listHeader"
+        app:layout_constraintBottom_toTopOf="@id/addButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Add Reminder"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_card"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/onPrimary"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
